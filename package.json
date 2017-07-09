@@ -1,7 +1,7 @@
 {
-  "name": "universal-react-redux",
+  "name": "universal-react-demo",
   "version": "0.1.0",
-  "description": "",
+  "description": "This is a demo of how to create a universal React app.",
   "scripts": {
     "dev": "webpack-dev-server --env.base=client",
     "build": "rm -rf dist && webpack --env.base=client && webpack --env.base=server",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mmiller42/universal-react-redux.git"
+    "url": "git+https://github.com/mmiller42/universal-react-demo.git"
   },
   "author": "Matt Miller <me@mmiller.me>",
   "license": "MIT",

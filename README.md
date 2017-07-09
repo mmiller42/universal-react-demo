@@ -7,8 +7,8 @@ This is a demo of how to create a universal React app.
 Clone the repository and install the dependencies.
 
 ```sh
-git clone https://github.com/mmiller42/universal-react-redux.git
-cd universal-react-redux
+git clone https://github.com/mmiller42/universal-react-demo.git
+cd universal-react-demo
 npm install
 ```
 

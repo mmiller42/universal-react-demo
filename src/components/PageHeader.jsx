@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 export default function PageHeader() {
 	return (
 		<div>
-			<h1>Universal React Redux</h1>
+			<h1>Universal React Demo</h1>
 			<nav>
 				<ul>
 					<li>
