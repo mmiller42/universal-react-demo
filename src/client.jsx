@@ -14,6 +14,9 @@ if (module.hot) {
 }
 
 function render() {
+	// AppContainer is just used by the hot reloader and does nothing in
+	// production. BrowserRouter uses the HTML5 API to change the URL dynamically
+	// without reloading the page, using the history module to keep this in sync.
 	ReactDOM.render(
 		<AppContainer>
 			<BrowserRouter history={history}>

@@ -4,9 +4,13 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width,initial-scale=1">
-		<title><%= typeof title !== 'undefined' ? title : htmlWebpackPlugin.options.title %></title>
+		<title>Universal React Demo</title>
 	</head>
 	<body>
+		<!-- In dev mode/client-only builds, this appears for a second and is
+		replaced by the app content when ReactDOM.render() is called. On the
+		universal server, Handlebars is used to replace this with the actual
+		HTML rendered by ReactDOM/server. -->
 		<div class="app">{{{app}}}</div>
 	</body>
 </html>

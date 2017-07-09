@@ -6,7 +6,7 @@
     "dev": "webpack-dev-server --env.base=client",
     "build": "rm -rf dist && webpack --env.base=client && webpack --env.base=server",
     "serve": "node dist/server.js",
-    "prettier": "prettier --write --use-tabs --no-semi --single-quote --trailing-comma es5 '**/*.{js,jsx}'"
+    "prettier": "prettier --write --use-tabs --no-semi --single-quote --trailing-comma es5 '{*,src/**/*}.{js,jsx}'"
   },
   "repository": {
     "type": "git",

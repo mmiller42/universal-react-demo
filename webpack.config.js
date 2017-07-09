@@ -3,13 +3,19 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const nodeExternals = require('webpack-node-externals')
 
+// Webpack 2 lets you define a function that accepts a config object. Then,
+// pointing the Webpack CLI to this file and passing it config params results in
+// it calling the function with said params in the object. Hell of a lot nicer
+// than a bunch of very similar config files, weird merging behavior, and a
+// dozen environment variables. Here, base is either client or server.
 module.exports = ({ base }) => {
-	const env = process.env.NODE_env
+	const env = process.env.NODE_ENV
 
 	const config = {
 		context: __dirname,
 		target: { client: 'web', server: 'node' }[base],
 		node: {
+			// Pass __dirname along as is (we need it in server.js)
 			__dirname: false,
 		},
 		resolve: {
@@ -22,6 +28,7 @@ module.exports = ({ base }) => {
 		output: {
 			path: path.resolve(__dirname, 'dist'),
 			publicPath: '/',
+			// Put the client bundle in dist/public and the server bundle just in dist
 			filename: { client: 'public/[name].[hash].js', server: 'server.js' }[
 				base
 			],
@@ -44,17 +51,18 @@ module.exports = ({ base }) => {
 	}
 
 	if (base === 'client') {
+		// The frontend build will generate the index.html file.
 		config.plugins.push(
 			new HtmlWebpackPlugin({
 				filename: 'index.html',
 				template: 'src/index.html',
-				title: 'Universal React Redux',
 				hash: true,
 			})
 		)
 	}
 
 	if (env === 'development' && base === 'client') {
+		// This is all configuration for the hot reloading server.
 		config.cache = true
 		config.devtool = 'cheap-eval-source-map'
 		config.entry.client.unshift(
@@ -83,6 +91,8 @@ module.exports = ({ base }) => {
 	}
 
 	if (base === 'server') {
+		// This just makes sure that, in the Node build, we don't bundle anything
+		// that exists in node_modules.
 		config.externals = [nodeExternals()]
 	}
 
