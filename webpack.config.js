@@ -8,7 +8,7 @@ module.exports = ({ base }) => {
 
 	const config = {
 		context: __dirname,
-		target: ({ client: 'web', server: 'node' })[base],
+		target: { client: 'web', server: 'node' }[base],
 		node: {
 			__dirname: false,
 		},
@@ -22,7 +22,9 @@ module.exports = ({ base }) => {
 		output: {
 			path: path.resolve(__dirname, 'dist'),
 			publicPath: '/',
-			filename: ({ client: 'public/[name].[hash].js', server: 'server.js' })[base],
+			filename: { client: 'public/[name].[hash].js', server: 'server.js' }[
+				base
+			],
 		},
 		module: {
 			rules: [

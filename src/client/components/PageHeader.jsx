@@ -7,9 +7,15 @@ export default function PageHeader() {
 			<h1>Universal React Redux</h1>
 			<nav>
 				<ul>
-					<li><NavLink to="/">Home</NavLink></li>
-					<li><NavLink to="/about">About</NavLink></li>
-					<li><NavLink to="/users">Users</NavLink></li>
+					<li>
+						<NavLink to="/">Home</NavLink>
+					</li>
+					<li>
+						<NavLink to="/about">About</NavLink>
+					</li>
+					<li>
+						<NavLink to="/users">Users</NavLink>
+					</li>
 				</ul>
 			</nav>
 		</div>
